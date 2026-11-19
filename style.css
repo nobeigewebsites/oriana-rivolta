@@ -1641,3 +1641,339 @@ strong {
   }
 
 }
+
+
+/* ============================================
+   ORIANA RIVOLTA
+   MIDNIGHT LIBRARY — CINEMATIC HERO
+
+   Uses:
+   images/midnight-library-hero.jpg
+
+   Replaces the CSS-drawn library scene.
+   ============================================ */
+
+/* Full photographic library background */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  min-height: 760px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #0b1510;
+  border-bottom: 1px solid var(--gold);
+}
+
+.hero-scene {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+
+  background-image:
+    url("images/midnight-library-hero.jpg");
+
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #101a17;
+}
+
+/* Subtle shading keeps the words readable */
+
+.hero-scene::after {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    90deg,
+    rgba(5, 13, 9, .12) 0%,
+    rgba(5, 13, 9, .20) 30%,
+    rgba(5, 13, 9, .08) 65%,
+    rgba(5, 13, 9, .02) 100%
+  );
+}
+
+/* Hide all the old cartoon library elements */
+
+.hero-scene .library-shelves,
+.hero-scene .window-arch,
+.hero-scene .night-moon,
+.hero-scene .city-silhouette,
+.hero-scene .scene-candle {
+  display: none !important;
+}
+
+/* The new artwork already has a red thread */
+
+.hero .thread-decoration {
+  display: none !important;
+}
+
+/* Elegant text over the dark centre of the image */
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+
+  width: min(760px, calc(100% - 48px));
+  margin-inline: auto;
+  padding: 110px 0 135px;
+
+  text-align: center;
+}
+
+.hero-content .eyebrow {
+  margin-bottom: 24px;
+  color: #e6c994;
+
+  font-size: 12px;
+  letter-spacing: .24em;
+
+  text-shadow: 0 2px 12px rgba(0,0,0,.9);
+}
+
+.hero-content h1 {
+  margin: 0 auto 18px;
+
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(62px, 7.3vw, 106px);
+
+  line-height: 1.02;
+  letter-spacing: .055em;
+
+  color: #f5e9d3;
+
+  text-shadow:
+    0 3px 12px rgba(0,0,0,.75),
+    0 0 35px rgba(0,0,0,.5);
+}
+
+.hero-content h1 em {
+  display: block;
+
+  font-family: var(--display);
+  font-style: normal;
+
+  color: #eac990;
+  letter-spacing: .07em;
+}
+
+/* Ornamental gold divider */
+
+.hero-content .gold-rule {
+  width: min(320px, 65%);
+  height: 1px;
+
+  margin: 26px auto 30px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #d8b77a 20%,
+    #f1d39b 50%,
+    #d8b77a 80%,
+    transparent
+  );
+}
+
+/* Parisienne signature-style quotation */
+
+.hero-tagline {
+  max-width: 690px;
+  margin: 0 auto 22px;
+
+  font-family: var(--script);
+  font-size: clamp(33px, 4vw, 54px);
+  font-weight: 400;
+
+  line-height: 1.25;
+  color: #f5e7d0;
+
+  text-shadow:
+    0 3px 12px rgba(0,0,0,.95);
+}
+
+.hero-description {
+  max-width: 510px;
+  margin: 0 auto;
+
+  font-family: var(--reading);
+  font-size: 16px;
+  line-height: 1.8;
+
+  color: #f3e7d3;
+
+  text-shadow:
+    0 2px 10px rgba(0,0,0,.95);
+}
+
+/* Refined gold buttons */
+
+.hero .button-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 18px;
+  margin-top: 35px;
+}
+
+.hero .button {
+  min-width: 190px;
+
+  box-shadow:
+    0 5px 20px rgba(0,0,0,.35);
+}
+
+.hero .button-gold {
+  background: linear-gradient(
+    135deg,
+    #e8c789,
+    #b88d51
+  );
+
+  border: 1px solid #e7c58c;
+  color: #18150f;
+}
+
+.hero .button-outline {
+  background: rgba(8,15,11,.7);
+  border: 1px solid #cba66b;
+  color: #f4e7cf;
+}
+
+.hero .button-outline:hover {
+  background: rgba(197,164,111,.2);
+}
+
+/* Bottom caption */
+
+.hero-bottom {
+  position: absolute;
+  bottom: 20px;
+  left: 5%;
+  right: 5%;
+  z-index: 3;
+
+  color: #e0c28e;
+
+  text-shadow:
+    0 2px 8px #000;
+}
+
+/* ============================================
+   TABLETS AND SMALLER BROWSER WINDOWS
+
+   Show the complete artwork above the words
+   instead of cutting Florence out of the frame.
+   ============================================ */
+
+@media (max-width: 900px) {
+
+  .hero {
+    display: block;
+    min-height: 0;
+
+    padding-top: clamp(190px, 46vw, 410px);
+  }
+
+  .hero-scene {
+    background-image:
+      url("images/midnight-library-hero.jpg");
+
+    background-position: center top;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-color: #101a17;
+  }
+
+  .hero-scene::after {
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(16,26,23,.1) 22%,
+      #101a17 47%,
+      #101a17 100%
+    );
+  }
+
+  .hero-content {
+    width: min(100% - 40px, 650px);
+
+    padding: 25px 0 85px;
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(47px, 9vw, 82px);
+  }
+
+  .hero-tagline {
+    font-size: clamp(29px, 5.6vw, 43px);
+  }
+
+  .hero-bottom {
+    bottom: 18px;
+  }
+}
+
+/* ============================================
+   MOBILE
+   ============================================ */
+
+@media (max-width: 480px) {
+
+  .hero {
+    padding-top: 46vw;
+  }
+
+  .hero-content {
+    width: calc(100% - 32px);
+    padding: 30px 0 90px;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(42px, 11vw, 60px);
+    letter-spacing: .02em;
+  }
+
+  .hero-content h1 em {
+    letter-spacing: .035em;
+  }
+
+  .hero-content .eyebrow {
+    font-size: 10px;
+    letter-spacing: .15em;
+  }
+
+  .hero-tagline {
+    font-size: clamp(29px, 8vw, 37px);
+  }
+
+  .hero-description {
+    font-size: 14px;
+  }
+
+  .hero .button-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero .button {
+    width: 100%;
+  }
+
+  .hero-bottom {
+    font-size: 8px;
+  }
+}
+
+
+
